@@ -4,8 +4,8 @@
   remote_user: root 
   tasks:
 
-- name: Config Jenkins
-  hosts: frontend
+- name: Config Monitoring
+  hosts: ibmcloud ks cluster config --cluster btkftkkd06en7bpi9230
   tasks:
 
   - name: Preconfig
