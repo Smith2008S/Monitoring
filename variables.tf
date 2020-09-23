@@ -68,15 +68,5 @@ variable "ssh_accesscheck" {
   default     = false
 }
 
-variable "ssh_private_key" {
-  description = "SSH private key of SSH key pair used for VSIs and Bastion"
-}
 
-data "ibm_is_ssh_key" "sshkey" {
-  name = var.ssh_key_name
-}
-
-variable "ssh_key_name" {
-  description = "Name giving to public SSH key uploaded to IBM Cloud for VSI access"
-}
 
