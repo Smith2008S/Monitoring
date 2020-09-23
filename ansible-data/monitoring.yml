@@ -5,7 +5,7 @@
   tasks:
 
 - name: Config Jenkins
-  hosts: ibmcloud ks cluster config --cluster btkftkkd06en7bpi9230
+  hosts: frontend
 
   - name: Preconfig
     include_role: 
