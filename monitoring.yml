@@ -1,0 +1,14 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  remote_user: root 
+  tasks:
+
+- name: Config Jenkins
+  hosts: frontend
+
+  - name: Preconfig
+    include_role: 
+       name: rheinwerk.ansible_role_sysdig_user_audit
+
+
