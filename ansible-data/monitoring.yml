@@ -6,6 +6,7 @@
 
 - name: Config Jenkins
   hosts: frontend
+  tasks:
 
   - name: Preconfig
     include_role: 
