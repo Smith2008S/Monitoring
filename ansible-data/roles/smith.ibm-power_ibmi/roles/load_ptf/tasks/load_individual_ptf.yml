@@ -1,0 +1,20 @@
+---
+# tasks file for load_individual_ptf
+- name: Involve ibmi_fix to load ptfs
+  ibmi_fix:
+    product_id: "{{ load_ptf.product }}"
+    save_file_object: "{{ (load_ptf.file_name | splitext)[0] }}"
+    save_file_lib: '{{ remote_lib }}'
+    operation: 'load_only'
+  ignore_errors: True
+  register: load_result
+
+- name: log success in result
+  set_fact:
+    load_success_list: "{{ load_success_list|default([]) + [ load_ptf ] }}"
+  when: load_result.failed == 0
+
+- name: log fail in result
+  set_fact:
+    load_fail_list: "{{ load_fail_list|default([]) + [ load_ptf ] }}"
+  when: load_result.failed != 0

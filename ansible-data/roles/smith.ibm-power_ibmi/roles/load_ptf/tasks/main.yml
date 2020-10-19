@@ -1,0 +1,19 @@
+---
+# tasks file for load_ptf
+- set_fact:
+    load_success_list: []
+    load_fail_list: []
+
+- name: load ptfs from save file
+  include_tasks: load_individual_ptf.yml
+  loop: "{{ to_be_loaded_list }}"
+  loop_control:
+    loop_var: load_ptf
+
+- name: Print the successfully load list
+  debug:
+    var: load_success_list
+
+- name: Print the fail load list
+  debug:
+    var: load_fail_list

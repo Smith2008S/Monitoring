@@ -1,0 +1,22 @@
+- hosts: 169.61.54.42 
+  become: yes
+  become_method: sudo
+  remote_user: root 
+
+  tasks:
+
+  - name: update packages
+    raw: apt-get update
+
+  - name: install jdk
+    apt:
+      name:
+      - default-jdk
+      state: present
+
+  - name: Preconfig
+    include_role: 
+       name: smith.ibm-power_ibmi
+
+  
+
